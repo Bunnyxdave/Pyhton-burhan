@@ -1,0 +1,44 @@
+{
+  "name": "SteganographyJob",
+  "type": "object",
+  "properties": {
+    "operation_type": {
+      "type": "string",
+      "enum": [
+        "encode",
+        "decode"
+      ],
+      "description": "Whether this job encodes or decodes a message"
+    },
+    "original_filename": {
+      "type": "string",
+      "description": "Name of the uploaded file"
+    },
+    "input_file_url": {
+      "type": "string",
+      "description": "URL of the input image file"
+    },
+    "output_file_url": {
+      "type": "string",
+      "description": "URL of the processed image file"
+    },
+    "message": {
+      "type": "string",
+      "description": "The secret message (for encode) or extracted message (for decode)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "processing",
+        "completed",
+        "failed"
+      ],
+      "default": "processing"
+    }
+  },
+  "required": [
+    "operation_type",
+    "original_filename",
+    "input_file_url"
+  ]
+}
